@@ -1,0 +1,41 @@
+.goal-card {
+  background: #222a2f;
+  color: #ffffff;
+  padding: 50px;                  /* Mucho padding como en tu imagen */
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1100px;              /* <- tamaño exacto del modelo */
+  margin: 0 auto;                 /* Centrado */
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+.goal-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;        /* Como en tu captura */
+}
+
+.goal-description {
+  margin-top: 12px;
+  font-size: 15px;
+  opacity: 0.85;                /* Gris suave */
+}
+
+.goal-delete {
+  margin-top: 20px;
+  padding: 6px 14px;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #222;
+  transition: opacity 0.2s;
+}
+
+.goal-delete:hover {
+  opacity: 0.8;
+}

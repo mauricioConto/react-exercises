@@ -1,0 +1,10 @@
+main {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#root {
+  padding: 0 !important;
+  margin: 0 auto !important;
+  width: 100%;
+}
