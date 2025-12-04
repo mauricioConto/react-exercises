@@ -1,22 +1,40 @@
-import CourseGoals from './components/CourseGoals.tsx';
-import goalsImg from './assets/goals.png'
+import goalsImg from './assets/goals.jpg'
 import Header from './components/Header.tsx';
+import CourseGoalsList from './components/CourseGoalsList.tsx';
+import { useState } from 'react';
+import NewGoal from './components/NewGoal.tsx';
+
+export type CourseGoal = {
+        title: string;
+        description: string;
+        id: number;
+};
+
+
 export default function App() {
+
+const [goals, setGoals] = useState<CourseGoal[]>([]);
+
+  function handleAddGoal(goal:string, summary:string){
+    setGoals(prevGoals=>{
+      const newGoal: CourseGoal = {
+        id: Math.random(),
+        title: goal,
+        description: summary
+      };
+  return [...prevGoals, newGoal]
+    })
+  }
+
+  function handleDeleteGoal(id: number){
+    setGoals(prevGoals => prevGoals.filter((goal)=>goal.id !== id));
+    
+  }
   return (
-    <main style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      paddingTop: "60px",
-      width: "100%",
-      minHeight: "100vh",
-      background: "#f7f9fa",
-      
-    }}>
-      
-      <CourseGoals title="Learn React + TS"><p><Header image={{src:goalsImg, alt:'A list of goals'}}>
-        <h1>Your course goals</h1>
-      </Header>Learn it with udemy</p></CourseGoals> 
-    </main>
+    <main>
+      <Header image={{src:goalsImg, alt:'A list of tasks'}}><h1>Your daily tasks</h1></Header>
+      <NewGoal onAddGoal={handleAddGoal}></NewGoal><p>
+      <CourseGoalsList goals={goals} onDeleteGoal={handleDeleteGoal}></CourseGoalsList></p>
+      </main>
   );
 }

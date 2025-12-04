@@ -1,3 +1,15 @@
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0;
+  list-style: none; /* Quita las viñetas */
+}
+
+
 main {
   padding: 0 !important;
   margin: 0 !important;
